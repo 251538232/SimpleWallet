@@ -137,7 +137,7 @@ sign = ecc.sign(data, privateKey)
 	contract    string   // 转账的token所属的contract账号名，必须
 	symbol      string   // 转账的token名称，必须
 	precision   number   // 转账的token的精度，小数点后面的位数，必须
-	dappData    string   // 由dapp生成的业务参数信息，需要钱包在转账时附加在memo中发出去，格式一般为json
+	dappData    string   // 由dapp生成的业务参数信息，需要钱包在转账时附加在memo中发出去，格式一般为json，可选
 	desc	    string   // 交易的说明信息，钱包在付款UI展示给用户，最长不要超过128个字节，可选			     
 	expired	    number   // 二维码过期时间，unix时间戳
         callback    string   // 用户完成操作后，钱包回调拉起dapp移动端的回调URL,如https://abc.com?action=login&qrcID=123，可选
@@ -169,7 +169,7 @@ sign = ecc.sign(data, privateKey)
 	contract    string   // 转账的token所属的contract账号名	
 	symbol      string   // 转账的token名称，必须
 	precision   number   // 转账的token的精度，小数点后面的位数，必须	
-	dappData    string   // 由dapp生成的业务参数信息，需要钱包在转账时附加在memo中发出去，格式一般为json
+	dappData    string   // 由dapp生成的业务参数信息，需要钱包在转账时附加在memo中发出去，格式一般为json，可选
 	desc	    string   // 交易的说明信息，钱包在付款UI展示给用户，最长不要超过128个字节，可选			     
         callback    string   // 用户完成操作后，钱包回调拉起dapp移动端的回调URL,如appABC://abc.com?action=login，可选
     		             // 钱包回调时在此URL后加上操作结果(result、txID)，如：appABC://abc.com?action=login&result=1&txID=xxx, 
