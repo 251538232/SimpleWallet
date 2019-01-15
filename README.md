@@ -1,26 +1,17 @@
 # SimpleWallet 协议文档 
 
-版本：1.0
+版本：1.0.1
 
-协议最后更新：2018.8.31
+协议最后更新：2019.01.15
 
-English Version: https://github.com/southex/SimpleWallet/blob/master/README_en.md （ EOSShenzhen 翻译）
+English Version: https://github.com/newdex/SimpleWallet/blob/master/README_en.md （ EOSShenzhen 翻译）
 
 ## 简介
 SimpleWallet是一个EOS钱包和dapp的通用对接协议。
 
 目前EOS的钱包应用众多、dapp也在快速发展中，在实际对接过程中，各方标准不统一，对接耗时耗力。
 遵照此协议，可以减少各方开发适配工作，低耦合的实现钱包对dapp进行登录授权和支付。
-钱包接入方可在 https://www.southex.com 进行在线测试。 
-
-## 协议发起方
-本协议由SouthEX起草，MeetOne、More、TokenPocket、KKWallet、HaloWallet 共同参与讨论和修改。
-
-除以上五家钱包之外，目前正在接入的钱包商还包括韩国的coinus等。
-
-目前接入此协议的名单：https://github.com/southex/SimpleWallet/blob/master/supporter_list.md
-
-欢迎更多的钱包和dapp接入此协议，并向我们提交你们的产品信息。
+钱包接入方可在 https://newdex.io 进行在线测试。 
 
 ## 功能列表
 - 登录
@@ -146,8 +137,7 @@ sign = ecc.sign(data, privateKey)
 	contract    string   // 转账的token所属的contract账号名，必须
 	symbol      string   // 转账的token名称，必须
 	precision   number   // 转账的token的精度，小数点后面的位数，必须
-	dappData    string   // 由dapp生成的业务参数信息，需要钱包在转账时附加在memo中发出去，格式为:k1=v1&k2=v2，可选
-			     // 钱包转账时还可附加ref参数标明来源，如：k1=v1&k2=v2&ref=walletname
+	dappData    string   // 由dapp生成的业务参数信息，需要钱包在转账时附加在memo中发出去，格式一般为json
 	desc	    string   // 交易的说明信息，钱包在付款UI展示给用户，最长不要超过128个字节，可选			     
 	expired	    number   // 二维码过期时间，unix时间戳
         callback    string   // 用户完成操作后，钱包回调拉起dapp移动端的回调URL,如https://abc.com?action=login&qrcID=123，可选
@@ -179,8 +169,7 @@ sign = ecc.sign(data, privateKey)
 	contract    string   // 转账的token所属的contract账号名	
 	symbol      string   // 转账的token名称，必须
 	precision   number   // 转账的token的精度，小数点后面的位数，必须	
-	dappData    string   // 由dapp生成的业务参数信息，需要钱包在转账时附加在memo中发出去，格式为:k1=v1&k2=v2，可选
-			     // 钱包转账时还可附加ref参数标明来源，如：k1=v1&k2=v2&ref=walletname
+	dappData    string   // 由dapp生成的业务参数信息，需要钱包在转账时附加在memo中发出去，格式一般为json
 	desc	    string   // 交易的说明信息，钱包在付款UI展示给用户，最长不要超过128个字节，可选			     
         callback    string   // 用户完成操作后，钱包回调拉起dapp移动端的回调URL,如appABC://abc.com?action=login，可选
     		             // 钱包回调时在此URL后加上操作结果(result、txID)，如：appABC://abc.com?action=login&result=1&txID=xxx, 
@@ -225,6 +214,7 @@ sign = ecc.sign(data, privateKey)
 
 
 ## 更新说明
+- 19.1.15 修改dappData说明
 - 9.6
   增加了FAQ内容
 - 8.17 
