@@ -18,7 +18,7 @@ This protocol aims to reduce the development and adaption work of all parties th
 
 This protocol has been built to be compatible with several wallets, and is currently undergoing final tests to ensure their compatibility.
 
-Test page link: [http://demo.eossw.io](http://demo.eossw.io/)
+Test page link: [http://newdex.io](http://newdex.io/)
 
 ## Function list
 
